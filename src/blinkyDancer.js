@@ -4,7 +4,7 @@ var BlinkyDancer = function(top, left, timeBetweenSteps){
   // so we must keep a copy of the old version of this function
   var oldStep = Dancer.prototype.step;
   window.dancers.push(this[0]);
-
+  this.$node.addClass("blinky");
 };
 
 BlinkyDancer.prototype = new Dancer();

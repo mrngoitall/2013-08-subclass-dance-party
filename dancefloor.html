@@ -54,12 +54,18 @@
 
           $('body').append(dancer.$node);
         });
+
         $(".lineUpButton").on("click", function(event) {
           $("#whistle")[0].play();
           for (var i = 0; i < window.dancers.length; i++ ) {
             window.dancers[i].lineUp();
           }
-        })
+        });
+
+        $(".blinky").on("mouseover", function(event) {
+          $(this).animate({'border-radius': "100px"},200);
+        });
+
       });
     </script>
 
