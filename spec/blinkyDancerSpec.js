@@ -6,6 +6,7 @@ describe("blinkyDancer", function() {
 
   beforeEach(function() {
     clock = sinon.useFakeTimers();
+    window.dancers = [];
     blinkyDancer = new BlinkyDancer(10, 20, timeBetweenSteps);
   });
 
@@ -17,6 +18,12 @@ describe("blinkyDancer", function() {
     sinon.spy(blinkyDancer.$node, 'toggle');
     blinkyDancer.step();
     expect(blinkyDancer.$node.toggle.called).to.be.true;
+  });
+
+  it("should have a lineUp function that makes its node line up", function() {
+    sinon.spy(blinkyDancer.$node, 'animate');
+    blinkyDancer.lineUp();
+    expect(blinkyDancer.$node.animate.called).to.be.true;
   });
 
   describe("dance", function(){

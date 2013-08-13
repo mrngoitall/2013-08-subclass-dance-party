@@ -19,11 +19,11 @@ ColorDancer.prototype.step = function(){
   for (var i = 0; i < 6; i++) {
     color += colorValues[Math.ceil(Math.random()*16)];
   }
-  var styleSettings = {
+  var randomSize = (Math.random()*50)+'px';
+  this.$node.css({
     'border-color': color
-  };
-  this.$node.css(styleSettings);
-  this.$node.animate({"border-width": "15px", "border-radius": "15px"}, 800);
+  });
+  this.$node.animate({"border-width": randomSize, "border-radius": randomSize}, 800);
 
 };
 ColorDancer.prototype.lineUp = function() {
