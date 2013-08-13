@@ -20,6 +20,12 @@ describe("blinkyDancer", function() {
     expect(blinkyDancer.$node.toggle.called).to.be.true;
   });
 
+  it("should have a lineUp function that makes its node line up", function() {
+    sinon.spy(blinkyDancer.$node, 'animate');
+    blinkyDancer.lineUp();
+    expect(blinkyDancer.$node.animate.called).to.be.true;
+  });
+
   describe("dance", function(){
     it("should call step at least once per second", function(){
       sinon.spy(blinkyDancer, "step");

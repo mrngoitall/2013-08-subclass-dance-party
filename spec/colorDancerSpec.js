@@ -14,10 +14,22 @@ describe("colorDancer", function() {
     expect(colorDancer.$node).to.be.an.instanceof(jQuery);
   });
 
-  it("should have a step function that makes its node blink", function() {
-    sinon.spy(colorDancer.$node, 'toggle');
+  it("should have a step function that makes its node change colors", function() {
+    sinon.spy(colorDancer.$node, 'css');
     colorDancer.step();
-    expect(colorDancer.$node.toggle.called).to.be.true;
+    expect(colorDancer.$node.css.called).to.be.true;
+  });
+
+  it("should have a step function that makes its node change shape", function() {
+    sinon.spy(colorDancer.$node, 'animate');
+    colorDancer.step();
+    expect(colorDancer.$node.animate.called).to.be.true;
+  });
+
+  it("should have a lineUp function that makes its node line up", function() {
+    sinon.spy(colorDancer.$node, 'animate');
+    colorDancer.lineUp();
+    expect(colorDancer.$node.animate.called).to.be.true;
   });
 
   describe("dance", function(){

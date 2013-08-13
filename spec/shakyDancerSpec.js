@@ -20,6 +20,12 @@ describe("shakyDancer", function() {
     expect(shakyDancer.$node.css.called).to.be.true;
   });
 
+  it("should have a lineUp function that makes its node line up", function() {
+    sinon.spy(shakyDancer.$node, 'animate');
+    shakyDancer.lineUp();
+    expect(shakyDancer.$node.animate.called).to.be.true;
+  });
+
   describe("dance", function(){
     it("should call step at least once per second", function(){
       sinon.spy(shakyDancer, "step");

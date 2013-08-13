@@ -14,10 +14,16 @@ describe("imageDancer", function() {
     expect(imageDancer.$node).to.be.an.instanceof(jQuery);
   });
 
-  it("should have a step function that makes its node blink", function() {
-    sinon.spy(imageDancer.$node, 'toggle');
+  it("should have a step function that makes its node rotate", function() {
+    sinon.spy(imageDancer.$node, 'css');
     imageDancer.step();
-    expect(imageDancer.$node.toggle.called).to.be.true;
+    expect(imageDancer.$node.css.called).to.be.true;
+  });
+  
+  it("should have a lineUp function that makes its node line up", function() {
+    sinon.spy(imageDancer.$node, 'animate');
+    imageDancer.lineUp();
+    expect(imageDancer.$node.animate.called).to.be.true;
   });
 
   describe("dance", function(){
