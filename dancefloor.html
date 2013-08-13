@@ -7,14 +7,20 @@
     <script src="src/dancer.js"></script>
     <script src="src/blinkyDancer.js"></script>
     <script src="src/shakyDancer.js"></script>
+    <script src="src/colorDancer.js"></script>
+    <script src="src/imageDancer.js"></script>
   </head>
   <body>
 
     <div class="topbar">
       <span class="title">object dance party</span>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">add a blinky dancer</a>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="ShakeyDancer">add a shaky dancer</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="ShakyDancer">add a shaky dancer</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="ColorDancer">add a color dancer</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="ImageDancer">add an image dancer</a>
+      <a href="#" class="lineUpButton">Line Up Colors</a>
     </div>
+        <audio id="whistle" src="lib/whistle.wav"></audio>
 
     <script>
       $(document).ready(function(){
@@ -41,13 +47,19 @@
 
           // make a dancer with a random position
           var dancer = new dancerMakerFunction(
-            $("body").height() * Math.random(),
+            $("body").height() * Math.random()+25,
             $("body").width() * Math.random(),
             Math.random() * 1000
           );
 
           $('body').append(dancer.$node);
         });
+        $(".lineUpButton").on("click", function(event) {
+          $("#whistle")[0].play();
+          for (var i = 0; i < window.dancers.length; i++ ) {
+            window.dancers[i].lineUp();
+          }
+        })
       });
     </script>
 
