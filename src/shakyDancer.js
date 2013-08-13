@@ -26,11 +26,10 @@ ShakyDancer.prototype.step = function(){
   this.addLeft ? this.newLeft = this.newLeft + addMove : this.newLeft = this.newLeft - addMove;
   this.addTop = Math.random() <= 0.5;
   this.addLeft = Math.random() <= 0.5;
-  var styleSettings = {
+  this.$node.css({
     top: this.newTop,
     left: this.newLeft
-  };
-  this.$node.css(styleSettings);
+  });
 };
 
 ShakyDancer.prototype.lineUp = function() {
