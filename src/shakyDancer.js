@@ -21,10 +21,11 @@ ShakyDancer.prototype.step = function(){
    * See http://api.jquery.com/category/effects/ for this and
    * other effects you can use on a jQuery-wrapped html tag. */
    // 0-255, 0-255, 0-255
-  this.addTop ? this.newTop = this.newTop + (10 * Math.random()) : this.newTop = this.newTop - (10 * Math.random());
-  this.addLeft ? this.newLeft = this.newLeft + (10 * Math.random()) : this.newLeft = this.newLeft - (10 * Math.random());
-  this.addTop ? this.addTop = false : this.addTop = true;
-  this.addLeft ? this.addLeft = false : this.addLeft = true;
+   var addMove = 50 * Math.random();
+  this.addTop ? this.newTop = this.newTop + addMove : this.newTop = this.newTop - addMove;
+  this.addLeft ? this.newLeft = this.newLeft + addMove : this.newLeft = this.newLeft - addMove;
+  this.addTop = Math.random() <= 0.5;
+  this.addLeft = Math.random() <= 0.5;
   var styleSettings = {
     top: this.newTop,
     left: this.newLeft

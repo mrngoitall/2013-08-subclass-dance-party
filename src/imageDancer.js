@@ -5,10 +5,9 @@ var ImageDancer = function(top, left, timeBetweenSteps){
   var oldStep = Dancer.prototype.step;
   window.dancers.push(this);
 
-  var styleSettings = {
+  this.$node.css({
     'border': 'none'
-  };
-  this.$node.css(styleSettings);
+  });
   var images = ['lib/dancing_banana.gif','lib/cabinetinfomercial.gif','lib/marcus.gif'];
   this.$node.append("<img class='imageDancer' src="+images[Math.floor(Math.random()*images.length)]+">");
 
@@ -22,10 +21,9 @@ ImageDancer.prototype.step = function(){
 
   //this.$node.animate({"width": this.width+'%', "height": this.height+'%'}, 800);
   rotation = (Math.ceil(Math.random()*360));
-  var styleSettings = {
+  this.$node.css({
     "-webkit-transform": "rotate("+rotation+"deg)"
-  };
-  this.$node.css(styleSettings);
+  });
 };
 ImageDancer.prototype.lineUp = function() {
   this.$node.animate({top: "100px"}, 1500);
