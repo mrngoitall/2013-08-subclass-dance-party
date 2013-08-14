@@ -4,6 +4,7 @@ var ImageDancer = function(top, left, timeBetweenSteps){
   // so we must keep a copy of the old version of this function
   var oldStep = Dancer.prototype.step;
   window.dancers.push(this);
+  this.$node.addClass("imagey");
 
   this.$node.css({
     'border': 'none'
@@ -19,12 +20,11 @@ ImageDancer.prototype.step = function(){
   // call the old version of step at the beginning of any call to this new version of step
   Dancer.prototype.step.call(this);
 
-  //this.$node.animate({"width": this.width+'%', "height": this.height+'%'}, 800);
   rotation = (Math.ceil(Math.random()*360));
   this.$node.css({
     "-webkit-transform": "rotate("+rotation+"deg)"
   });
 };
 ImageDancer.prototype.lineUp = function() {
-  this.$node.animate({top: "100px"}, 1500);
+  this.$node.animate({top: "500px"}, 1500);
 };

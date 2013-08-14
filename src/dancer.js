@@ -23,6 +23,10 @@ Dancer.prototype.step = function(){
   }, this._timeBetweenSteps);
 };
 
+Dancer.prototype.findDistance = function(node) {
+  return Math.sqrt((Math.pow(node.style.top.substring(0,5),2)+Math.pow(this.$node[0].style.top.substring(0,5),2)));
+};
+
 Dancer.prototype.setPosition = function(top, left){
   /* Use css top and left properties to position our <span> tag
    * where it belongs on the page. See http://api.jquery.com/css/

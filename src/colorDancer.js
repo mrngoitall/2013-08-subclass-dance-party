@@ -27,5 +27,5 @@ ColorDancer.prototype.step = function(){
 
 };
 ColorDancer.prototype.lineUp = function() {
-  this.$node.animate({top: "100px"}, 1500);
+  this.$node.animate({top: "400px"}, 1500);
 };
